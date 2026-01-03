@@ -9,12 +9,12 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
-import os
+import django_heroku
 from pathlib import Path
+import os
 import sys
 import dj_database_url
-import django_heroku
-django_heroku.settings(locals())
+
 if os.path.isfile('env.py'):
     import env
 
@@ -134,3 +134,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # Crispy Forms Configuration
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# Heroku settings
+django_heroku.settings(locals())
